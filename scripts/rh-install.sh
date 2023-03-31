@@ -1,6 +1,6 @@
 # Download latest stable Rotorhazard version 
 
-INSTAL_DIR=~/test
+INSTAL_DIR=~
 
 # Download the latest version of RotorHazard
 LOCATION=$(curl -s https://api.github.com/repos/RotorHazard/RotorHazard/releases/latest \
@@ -31,6 +31,9 @@ rm $INSTAL_DIR/temp.zip
 cp $INSTAL_DIR/RotorHazard.old/src/server/config.json $INSTAL_DIR/RotorHazard/src/server/
 cp $INSTAL_DIR/RotorHazard.old/src/server/database.db $INSTAL_DIR/RotorHazard/src/server/
 
+#Update python requirements
+sudo pip install --upgrade --no-cache-dir -r $INSTAL_DIR/RotorHazard/src/server/requirements.txt
+
 # Update admin password on new installs and print connect info
 FILE=$INSTAL_DIR/RotorHazard/src/server/config.json
 if [ -f "$FILE" ]; then
@@ -46,9 +49,6 @@ else
     echo "username = admin"
     echo "password = "$random
 fi
-
-#Update python requirements
-sudo pip install --upgrade --no-cache-dir -r $INSTAL_DIR/RotorHazard/src/server/requirements.txt
 
 
 

@@ -15,5 +15,7 @@ sudo apt-get --yes install default-jdk-headless
 # For Older Pi's
 #sudo apt --yes --force-yes install openjdk-8-jdk-headless
 
+sudo apt-get --yes install iptables iptables-persistent
+
 # Upgrade the pi to the latest versions of files
 sudo apt-get --yes upgrade
