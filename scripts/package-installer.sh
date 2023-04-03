@@ -15,6 +15,7 @@ sudo apt-get --yes install default-jdk-headless
 # For Older Pi's
 #sudo apt --yes --force-yes install openjdk-8-jdk-headless
 
+# Instal firewall to re-route port 80 to 5000
 sudo apt-get --yes install iptables iptables-persistent
 
 # Upgrade the pi to the latest versions of files

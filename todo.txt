@@ -1,6 +1,0 @@
-To do 
-
-Add test for Python version
-Check installing requirements.txt works proerply
-Add check to iptables to see if it is already implemented 
-Add checks to not repeat operations alerady done
