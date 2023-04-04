@@ -1,11 +1,11 @@
 # RH-Setup
  
-Run this command to install:
+Run these commands to install RotorHazard and all of it's dependancies
 
 ```
 cd ~
-git clone https://github.com/Aaronsss/RH-Setup.git
-cd ~/RH-Setup/
-sudo chmod 744 rh-pi-setup.sh
-./rh-pi-setup.sh
+wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
+unzip main.zip
+sudo chmod 744 ~/RH-Setup/rh-pi-setup.sh
+~/RH-Setup/rh-pi-setup.sh
 ```

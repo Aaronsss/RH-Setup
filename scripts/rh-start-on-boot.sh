@@ -1,10 +1,8 @@
-# Setup Rotorhazard service
+echo "************* Setup Rotorhazard service *************"
 
 if [ -f "/lib/systemd/system/rotorhazard.service" ]; then
     echo "Rotorhazard service already exsists."
 else 
-    echo "Current user is:" $USER
-
     sed -i -e 's/pi/'$USER'/g' ./resources/rotorhazard.service
 
     # Note you will need to update the rotorhazard.service file if you are not using the pi username

@@ -1,4 +1,4 @@
-# Download latest stable Rotorhazard version 
+echo "************* Download latest stable Rotorhazard version *************"
 
 INSTAL_DIR=~
 
@@ -46,7 +46,7 @@ else
     sed -i -e 's/rotorhazard/'$random'/g' $FILE
 
     echo "To login to rotorhazard go to" $(hostname -I) "in a browser"
-    echo "username = admin"
+    echo "username = "$USER
     echo "password = "$random
 fi
 

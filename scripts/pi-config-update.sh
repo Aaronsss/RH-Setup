@@ -1,4 +1,4 @@
-# Update pi settings to support bluepill hardware
+echo "************* Update pi settings to support bluepill hardware *************"
 
 sudo raspi-config nonint do_ssh 0
 sudo raspi-config nonint do_spi 0
