@@ -1,6 +1,7 @@
 # Clean up and set file permimssions
 cd ~
 rm ./main.zip
+cd ~/RH-Setup-main
 chmod 744 ./scripts/package-installer.sh ./scripts/pi-config-update.sh ./scripts/set-python-version.sh ./scripts/rh-port-forward.sh ./scripts/rh-start-on-boot.sh ./scripts/rh-install.sh
 
 # Stop RotorHazard if it is running
