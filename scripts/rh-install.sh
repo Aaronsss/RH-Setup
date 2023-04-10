@@ -50,5 +50,8 @@ else
     echo "password = "$random
 fi
 
+sudo cp $INSTAL_DIR/RotorHazard/src/server/config.json /boot/RH/RHconfig.json
+
+
 
 
