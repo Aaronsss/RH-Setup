@@ -18,7 +18,7 @@ else
     echo "Script completed in: " $SECONDS "Seconds"
     echo "RotorHazard first stage instal done"
     echo "Rebooting to complete install"
-    #sudo shutdown -r now
+    sudo shutdown -r now
 fi
 
 if grep -Fxq "2" /boot/RH/RHInstalProgress.txt
@@ -31,8 +31,8 @@ else
     sudo systemctl stop rotorhazard
 
     ./scripts/rh-port-forward.sh
-    #./scripts/rh-install.sh
-    #./scripts/rh-start-on-boot.sh
+    ./scripts/rh-install.sh
+    ./scripts/rh-start-on-boot.sh
 
     # Print the current version of Python
     python --version
@@ -43,5 +43,5 @@ else
     echo "Raspberry pi will reboot in 30 seconds - note down the password!"
     sleep 30
     echo "Rebooting now"
-    #sudo shutdown -r now
+    sudo shutdown -r now
 fi
