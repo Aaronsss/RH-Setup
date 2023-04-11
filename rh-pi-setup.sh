@@ -1,14 +1,15 @@
 cd ~
 if test -f "./main.zip"; then
     rm ./main.zip
-    chmod 744 ./scripts/package-installer.sh ./scripts/pi-config-update.sh ./scripts/set-python-version.sh ./scripts/rh-port-forward.sh ./scripts/rh-start-on-boot.sh ./scripts/rh-install.sh
+    cd ./RH-Setup-main/scripts
+    chmod 744 ./package-installer.sh ./pi-config-update.sh ./set-python-version.sh ./rh-port-forward.sh ./rh-start-on-boot.sh ./rh-install.sh
 fi
 
 if grep -Fxq "1" /boot/RH/RHInstalProgress.txt
 then
     echo "$(date) RotorHazard first stage install already completed"
 else
-    cd /home/aaron/RH-Setup-main
+    cd ./RH-Setup-main
 
     # Stop RotorHazard if it is running
     sudo systemctl stop rotorhazard
@@ -27,7 +28,7 @@ if grep -Fxq "2" /boot/RH/RHInstalProgress.txt
 then
     echo "$(date) RotorHazard second stage install already completed"
 else
-    cd /home/aaron/RH-Setup-main
+    cd ./RH-Setup-main
 
     # Stop RotorHazard if it is running
     sudo systemctl stop rotorhazard
