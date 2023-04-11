@@ -2,7 +2,7 @@ while [ "$(hostname -I)" = "" ]; do
   echo "No network detected: $(date)"
   sleep 2
 done
-echo "Network connection detected, running instal script"
+echo "Network connection detected, running RH instal script $(date)"
 
 echo "Instal username is: $USER"
 
