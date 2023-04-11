@@ -9,7 +9,7 @@ if grep -Fxq "1" /boot/RH/RHInstalProgress.txt
 then
     echo "$(date) RotorHazard first stage install already completed"
 else
-    cd ./RH-Setup-main
+    cd ~/RH-Setup-main
 
     # Stop RotorHazard if it is running
     sudo systemctl stop rotorhazard
@@ -28,7 +28,7 @@ if grep -Fxq "2" /boot/RH/RHInstalProgress.txt
 then
     echo "$(date) RotorHazard second stage install already completed"
 else
-    cd ./RH-Setup-main
+    cd ~/RH-Setup-main
 
     # Stop RotorHazard if it is running
     sudo systemctl stop rotorhazard
