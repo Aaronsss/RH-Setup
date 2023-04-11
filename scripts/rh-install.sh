@@ -44,6 +44,7 @@ else
 
     cp $INSTAL_DIR/RotorHazard/src/server/config-dist.json $FILE
     sed -i -e 's/rotorhazard/'$random'/g' $FILE
+    sed -i -e 's/admin/'$USER'/g' $FILE
 
     echo "To login to rotorhazard go to" $(hostname -I) "in a browser"
     echo "username = "$USER
