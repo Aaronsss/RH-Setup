@@ -11,16 +11,16 @@ else
     echo "$(date) No network detected"
     sleep 2
   done
-  echo "Network connection detected, running RH instal script $(date)"
+  echo "Network connection detected, running RH install script $(date)"
 
-  echo "Instal username is: $USER"
+  echo "Install username is: $USER"
 
   cd ~
   if [ -d "./RH-Setup-main" ];
   then
-      echo "Instal script already downloaded"
+      echo "Install script already downloaded"
   else
-    echo "Downloading instal script"
+    echo "Downloading install script"
       wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
       unzip -q main.zip
       chmod 744 ./RH-Setup-main/rh-pi-setup.sh

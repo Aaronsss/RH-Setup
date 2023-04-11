@@ -18,14 +18,14 @@ else
     ./scripts/pi-config-update.sh
 
     sudo sh -c 'echo "1" > /boot/RH/RHInstalProgress.txt'
-    echo "$(date) RotorHazard first stage instal completed in: " $SECONDS "Seconds"
+    echo "$(date) RotorHazard first stage install completed in: " $SECONDS "Seconds"
     echo "Rebooting to complete install"
     sudo shutdown -r now
 fi
 
 if grep -Fxq "2" /boot/RH/RHInstalProgress.txt
 then
-    echo "$(date) RotorHazard second stage instal already completed"
+    echo "$(date) RotorHazard second stage install already completed"
 else
     cd /home/aaron/RH-Setup-main
 
@@ -40,7 +40,7 @@ else
     python --version
 
     sudo sh -c 'echo "2" >> /boot/RH/RHInstalProgress.txt'
-    echo "$(date) RotorHazard second stage instal completed in: " $SECONDS "Seconds"
+    echo "$(date) RotorHazard second stage install completed in: " $SECONDS "Seconds"
     echo "Raspberry pi will reboot in 30 seconds - note down the password!"
     sleep 30
     echo "Rebooting now"
