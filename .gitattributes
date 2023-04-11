@@ -3,3 +3,4 @@
 
 # Declare files that will always have LF line endings on checkout.
 *.local text eol=lf
+*.service text eol=lf
