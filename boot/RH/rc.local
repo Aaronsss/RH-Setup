@@ -17,6 +17,6 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-su aaron -c '/boot/RH/rh-setup.sh' >> /boot/RH/RHInstal.log
+su USERNAME -c '/boot/RH/rh-setup.sh' >> /boot/RH/RHInstal.log
 
 exit 0
