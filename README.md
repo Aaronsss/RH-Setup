@@ -1,14 +1,14 @@
 # RH-Setup
 
 ### How to install
-1. Instal Raspbian onto your SD card using raspberry pi imager
-2. Paste the RH folder into boot folder on your SD card
+1. Instal Raspbian onto your SD card using raspberry pi imager (https://www.raspberrypi.com/software/)
+2. Paste the RH folder from this repository into your SD card (note 2 drives will appear use the one you can see files in)
 3. Add the following command to firstrun.sh on the line above 'rm -f /boot/firstrun.sh':
 ```
 sudo cp /boot/RH/rc.local /etc/rc.local
 ```
 4. Open /boot/RH/rc.local file and change USERNAME for the username you set your pi up with and save the file
-5. Remove the SD card and install it into yours PI
+5. Remove the SD card from y our PC and install it into your Pi
 6. Apply power to the PI and the install script will begin
 7. The raspberry pi will then reboot several times, give it 20 to 30 mins and it should all be setup for you
 
