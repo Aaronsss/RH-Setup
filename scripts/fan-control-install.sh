@@ -7,11 +7,11 @@ then
     echo "fan control script already downloaded"
 else
     sudo git clone https://github.com/Aaronsss/Raspberry-Pi-Fan-Control.git
-    cd Raspberry-Pi-Fan-Control
 fi
 
 echo "************* Setup fan control service *************"
 
+cd ~/RH-Setup-main
 if [ -f "/lib/systemd/system/pi-fan-control.service" ]; then
     echo "fan control service already exsists."
 else 
