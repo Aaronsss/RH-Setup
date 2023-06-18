@@ -2,8 +2,13 @@ echo "************* Download latest fan control script *************"
 #note this is used instead of the build in Pi fan control as the build in one only supports temps between 60 and 120C
 
 cd ~
-sudo git clone https://github.com/Aaronsss/Raspberry-Pi-Fan-Control.git
-cd Raspberry-Pi-Fan-Control
+if [ -d "./Raspberry-Pi-Fan-Control" ];
+then
+    echo "fan control script already downloaded"
+else
+    sudo git clone https://github.com/Aaronsss/Raspberry-Pi-Fan-Control.git
+    cd Raspberry-Pi-Fan-Control
+fi
 
 echo "************* Setup fan control service *************"
 
@@ -12,7 +17,7 @@ if [ -f "/lib/systemd/system/pi-fan-control.service" ]; then
 else 
     sed -i -e 's/pi/'$USER'/g' ./resources/pi-fan-control.service
 
-    sudo cp ./resources/rotorhazard.service /lib/systemd/system/pi-fan-control.service
+    sudo cp ./resources/pi-fan-control.service /lib/systemd/system/pi-fan-control.service
     sudo chmod 644 /lib/systemd/system/pi-fan-control.service
 
     # reload the daemon and enable
