@@ -1,0 +1,10 @@
+[Unit]
+Description=hwclock-start to read rtc and write to system clock
+After=sysinit.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/hwclock --hctosys --utc
+
+[Install]
+WantedBy=basic.target

@@ -36,6 +36,7 @@ else
     ./scripts/rh-port-forward.sh
     ./scripts/rh-install.sh
     ./scripts/rh-start-on-boot.sh
+    ./scripts/rtc-start-on-boot.sh
 
     # Print the current version of Python
     python --version

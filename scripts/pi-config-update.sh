@@ -41,6 +41,13 @@ else
     sudo -- bash -c 'echo "dtoverlay=gpio-shutdown,gpio_pin=18,debounce=5000" >> /boot/config.txt'
 fi
 
+if grep -nq "dtoverlay=i2c-rtc,ds3231" /boot/config.txt
+then
+	echo "dtoverlay=i2c-rtc,ds3231 already set"
+else
+    sudo -- bash -c 'echo "dtoverlay=i2c-rtc,ds3231" >> /boot/config.txt'
+fi
+
 if grep -nq "core_freq=250" /boot/config.txt
 then
 	echo "core_freq=250 already set"
