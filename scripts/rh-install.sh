@@ -30,6 +30,7 @@ rm $INSTAL_DIR/temp.zip
 # Copy over the old settings if they exsist
 cp $INSTAL_DIR/RotorHazard.old/src/server/config.json $INSTAL_DIR/RotorHazard/src/server/
 cp $INSTAL_DIR/RotorHazard.old/src/server/database.db $INSTAL_DIR/RotorHazard/src/server/
+cp -R $INSTAL_DIR/RotorHazard.old/src/server/static/user/ $INSTAL_DIR/RotorHazard/src/server/static/user/
 
 #Update python requirements
 sudo pip install --upgrade --no-cache-dir -r $INSTAL_DIR/RotorHazard/src/server/requirements.txt
