@@ -4,7 +4,6 @@ sudo raspi-config nonint do_ssh 0
 sudo raspi-config nonint do_spi 0
 sudo raspi-config nonint do_i2c 0
 sudo raspi-config nonint do_serial 2
-sudo raspi-config nonint do_fan 0 4 45
 
 if grep -nq "dtparam=i2c_baudrate=75000" /boot/config.txt
 then

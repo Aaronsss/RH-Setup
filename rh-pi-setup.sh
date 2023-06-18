@@ -2,7 +2,7 @@ cd ~
 if test -f "./main.zip"; then
     rm ./main.zip
     cd ~/RH-Setup-main/scripts
-    chmod 744 ./package-installer.sh ./pi-config-update.sh ./set-python-version.sh ./rh-port-forward.sh ./rh-start-on-boot.sh ./rh-install.sh
+    chmod 744 ./package-installer.sh ./pi-config-update.sh ./set-python-version.sh ./rh-port-forward.sh ./rh-start-on-boot.sh ./rh-install.sh ./fan-control-install.sh
 fi
 
 if grep -Fxq "1" /boot/RH/RHInstalProgress.txt
@@ -34,6 +34,7 @@ else
     sudo systemctl stop rotorhazard
 
     ./scripts/rh-port-forward.sh
+    ./scripts/fan-control-install.sh
     ./scripts/rh-install.sh
     ./scripts/rh-start-on-boot.sh
 
