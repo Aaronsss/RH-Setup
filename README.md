@@ -32,3 +32,7 @@ unzip main.zip
 sudo chmod 744 ~/RH-Setup-main/rh-pi-setup.sh
 ~/RH-Setup-main/rh-pi-setup.sh
 ```
+
+### Updating the timer software
+
+Should you wish to update the timer software you will need to delete /boot/RH/RHInstalProgress.txt this can be done vis SSH or on the SD card
