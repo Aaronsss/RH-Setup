@@ -22,4 +22,5 @@ sudo apt-get --yes install default-jdk-headless
 #sudo apt-get --yes install iptables iptables-persistent
 
 # Upgrade the pi to the latest versions of files
-sudo apt-get --yes upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+#sudo apt-get --yes upgrade
