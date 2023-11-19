@@ -33,7 +33,11 @@ cp $INSTAL_DIR/RotorHazard.old/src/server/database.db $INSTAL_DIR/RotorHazard/sr
 cp -R $INSTAL_DIR/RotorHazard.old/src/server/static/user/ $INSTAL_DIR/RotorHazard/src/server/static/user/
 
 #Update python requirements
-sudo pip install --upgrade --no-cache-dir -r $INSTAL_DIR/RotorHazard/src/server/requirements.txt
+cd $INSTAL_DIR/RotorHazard/src/server
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+#sudo pip install --upgrade --no-cache-dir -r $INSTAL_DIR/RotorHazard/src/server/requirements.txt
 
 # Update admin password on new installs and print connect info
 FILE=$INSTAL_DIR/RotorHazard/src/server/config.json
