@@ -19,9 +19,11 @@ The script will put additional files into /boot/RH which include the config.json
 Once the instller is complete you can turn off the pi remove the SD card and look at it on your PC to get the admin login for the web interfae
 
 ### How to connect to your timer
-You will need to find out the IP of your laptimer. For this you could download an app on your phone called fing. Make sure you are on the same network as the timer and then scan the network. The raspberry pi will likely be identified as a raspberrypi, you should use this ip to connect to your timer.
+You will need to find out the IP of your laptimer. For this you could download an app on your phone called fing. Make sure you are on the same network as the timer and then scan the network. The raspberry pi will likely be identified as a raspberrypi, you should use this ip to connect to your timer. You can also use the hostname to connector. FOr example if you set the hostname to laptimer during the SD card setup in th eraspberry pi imager you can connect to the pi with the address laptimer.local
 
-The last thing to do is to install the STM32 firmware
+The last thing to do is to install the STM32 firmware from within the rotorhazard settings -> system page
+
+### Manual instalation
  
 if you are logged into SSH and want to run the setup manually run these commands to install RotorHazard and all of it's dependancies
 
@@ -30,6 +32,10 @@ cd ~
 wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
 unzip main.zip
 sudo chmod 744 ~/RH-Setup-main/rh-pi-setup.sh
+~/RH-Setup-main/rh-pi-setup.sh
+```
+The raspberry pi will then reboot and you will have to run the following command to complete manunal instalation once the pi is booted up again
+```
 ~/RH-Setup-main/rh-pi-setup.sh
 ```
 
