@@ -34,9 +34,9 @@ else
     # Stop RotorHazard if it is running
     sudo systemctl stop rotorhazard
 
-    sudo systemctl status pi-fan-control.service # Deliberatly run a second time
+    #sudo systemctl status pi-fan-control.service # Deliberatly run a second time
 
-    ./scripts/fan-control-install.sh
+    #./scripts/fan-control-install.sh
     ./scripts/rh-install.sh
     ./scripts/rh-start-on-boot.sh
     ./scripts/rh-port-forward.sh
