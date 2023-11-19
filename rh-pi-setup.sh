@@ -18,6 +18,7 @@ else
     #./scripts/set-python-version.sh # Not required on newer installs of the Raspbian
     ./scripts/pi-config-update.sh
 
+    sudo mkdir -p /boot/RH
     sudo sh -c 'echo "1" > /boot/RH/RHInstalProgress.txt'
     echo "$(date) RotorHazard first stage install completed in: " $SECONDS "Seconds"
     echo "Rebooting to complete install"
