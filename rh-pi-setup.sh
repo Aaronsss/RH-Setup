@@ -18,6 +18,7 @@ else
     #./scripts/set-python-version.sh # Not required on newer installs of the Raspbian
     ./scripts/pi-config-update.sh
 
+    sudo mkdir -p /boot/RH
     sudo sh -c 'echo "1" > /boot/RH/RHInstalProgress.txt'
     echo "$(date) RotorHazard first stage install completed in: " $SECONDS "Seconds"
     echo "Rebooting to complete install"
@@ -33,12 +34,12 @@ else
     # Stop RotorHazard if it is running
     sudo systemctl stop rotorhazard
 
-    sudo systemctl status pi-fan-control.service # Deliberatly run a second time
+    #sudo systemctl status pi-fan-control.service # Deliberatly run a second time
 
-    ./scripts/rh-port-forward.sh
-    ./scripts/fan-control-install.sh
+    #./scripts/fan-control-install.sh
     ./scripts/rh-install.sh
     ./scripts/rh-start-on-boot.sh
+    ./scripts/rh-port-forward.sh
 
     # Print the current version of Python
     python --version
