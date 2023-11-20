@@ -7,7 +7,8 @@ cd ~
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 # install required packages
-sudo apt-get --yes install python3-dev libffi-dev python3-smbus build-essential python3-pip git scons swig python3-rpi.gpio libjpeg-dev libopenjp2-7-dev iptables iptables-persistent
+sudo apt-get --yes install python3-dev libffi-dev python3-smbus build-essential python3-pip git scons swig python3-rpi.gpio libjpeg-dev libopenjp2-7-dev iptables iptables-persistent python3-venv
+
 
 # Install additional LED options 
 sudo pip install pillow
