@@ -37,6 +37,7 @@ cd $INSTAL_DIR/RotorHazard/src/server
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+pip install pillow
 #sudo pip install --upgrade --no-cache-dir -r $INSTAL_DIR/RotorHazard/src/server/requirements.txt
 
 # Update admin password on new installs and print connect info
