@@ -15,7 +15,6 @@ else
     sudo systemctl stop rotorhazard
 
     ./scripts/package-installer.sh
-    #./scripts/set-python-version.sh # Not required on newer installs of the Raspbian
     ./scripts/pi-config-update.sh
 
     sudo mkdir -p /boot/RH
@@ -34,9 +33,6 @@ else
     # Stop RotorHazard if it is running
     sudo systemctl stop rotorhazard
 
-    #sudo systemctl status pi-fan-control.service # Deliberatly run a second time
-
-    #./scripts/fan-control-install.sh
     ./scripts/rh-install.sh
     ./scripts/rh-start-on-boot.sh
     ./scripts/rh-port-forward.sh

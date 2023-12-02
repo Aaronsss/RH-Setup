@@ -1,31 +1,20 @@
-if grep -Fxq "2" /boot/RH/RHInstalProgress.txt
-then
-    echo "$(date) RotorHazard has been installed, delete /boot/RH/RHInstalProgress.txt if you want the installer to run again"
-    if [ -d "./RH-Setup-main" ];
-    then
-      rm -R ./RH-Setup-main
-    fi
-else
+sed -i '/exit 0/d' /etc/rc.local
+echo "while [ "'$(hostname -I)'" = '' ]; do
+  sleep 2
+  mkdir /boot/RH/
+  echo 'waiting for network!' >> /boot/RH/log.txt
+done
 
-  while [ "$(hostname -I)" = "" ]; do
-    echo "$(date) No network detected"
-    sleep 2
-  done
-  echo "Network connection detected, running RH install script $(date)"
+cd /home/aaron/
+if [ ! -d './RH-Setup-main' ]; then
+  wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
+  unzip ./main.zip
+  chmod 744 ./RH-Setup-main/rh-pi-setup.sh
+  chown aaron -R ./RH-Setup-main/
+  chgrp aaron -R ./RH-Setup-main/
+fi
 
-  echo "Install username is: $USER"
+su aaron -c '~/RH-Setup-main/rh-pi-setup.sh' >> /boot/RH/log.txt
 
-  cd ~
-  if [ -d "./RH-Setup-main" ];
-  then
-      echo "Install script already downloaded"
-  else
-    echo "Downloading install script"
-      wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
-      unzip -q main.zip
-      chmod 744 ./RH-Setup-main/rh-pi-setup.sh
-  fi
-
-  ./RH-Setup-main/rh-pi-setup.sh
-
-  fi
+exit 0" >> /etc/rc.local
+shutdown -r +3

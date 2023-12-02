@@ -7,7 +7,23 @@ These scripts will setup your raspberry pi for the latest stable release of Roto
 2. Paste the RH folder from this repository into your SD card (note 2 drives will appear use the one you can see files in)
 3. Add the following command to firstrun.sh on the line above 'rm -f /boot/firstrun.sh':
 ```
-sudo cp /boot/RH/rc.local /etc/rc.local
+sed -i '/exit 0/d' /etc/rc.local
+echo "while [ "'$(hostname -I)'" = '' ]; do
+  sleep 2
+done
+
+cd /home/aaron/
+if [ ! -d './RH-Setup-main' ]; then
+  wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
+  unzip ./main.zip
+  chmod 744 ./RH-Setup-main/rh-pi-setup.sh
+  chown aaron -R ./RH-Setup-main/
+  chgrp aaron -R ./RH-Setup-main/
+fi
+
+su aaron -c '~/RH-Setup-main/rh-pi-setup.sh' >> /boot/RH/log.txt
+
+exit 0" >> /etc/rc.local
 ```
 4. Open /boot/RH/rc.local file and change USERNAME for the username you set your pi up with and save the file
 5. Remove the SD card from your PC and install it into your Pi
