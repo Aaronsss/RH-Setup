@@ -4,27 +4,28 @@ These scripts will setup your raspberry pi for the latest stable release of Roto
 
 ### How to install
 1. Install Pi OS onto your SD card using raspberry pi imager (https://www.raspberrypi.com/software/)
-2. Paste the RH folder from this repository into your SD card (note 2 drives will appear use the one you can see files in)
-3. Add the following command to firstrun.sh on the line above 'rm -f /boot/firstrun.sh':
+2. Add the following command to firstrun.sh on the line above 'rm -f /boot/firstrun.sh'
 ```
 sed -i '/exit 0/d' /etc/rc.local
 echo "while [ "'$(hostname -I)'" = '' ]; do
   sleep 2
 done
 
-cd /home/aaron/
+cd /home/pi/
 if [ ! -d './RH-Setup-main' ]; then
   wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
   unzip ./main.zip
   chmod 744 ./RH-Setup-main/rh-pi-setup.sh
-  chown aaron -R ./RH-Setup-main/
-  chgrp aaron -R ./RH-Setup-main/
+  chown pi -R ./RH-Setup-main/
+  chgrp pi -R ./RH-Setup-main/
+  mkdir /boot/RH/
 fi
 
-su aaron -c '~/RH-Setup-main/rh-pi-setup.sh' >> /boot/RH/log.txt
+su pi -c '~/RH-Setup-main/rh-pi-setup.sh' >> /boot/RH/log.txt
 
 exit 0" >> /etc/rc.local
 ```
+3. If you have set up the raspberry pi with username other than pi you will need to change the pi username in the code above to the usernae you have used in 4 locations. Make sure you don't change the rh-pi-setup text
 4. Open /boot/RH/rc.local file and change USERNAME for the username you set your pi up with and save the file
 5. Remove the SD card from your PC and install it into your Pi
 6. Apply power to the PI and the install script will begin
@@ -43,17 +44,31 @@ The last thing to do is to install the STM32 firmware from within the rotorhazar
  
 if you are logged into SSH and want to run the setup manually run these commands to install RotorHazard and all of it's dependencies
 
+You will need to change pi in 4 locations in the code below to your rapsberry pi username
+
 ```
-cd ~
-wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
-unzip main.zip
-sudo chmod 744 ~/RH-Setup-main/rh-pi-setup.sh
-~/RH-Setup-main/rh-pi-setup.sh
+sudo sed -i '/exit 0/d' /etc/rc.local
+sudo echo "while [ "'$(hostname -I)'" = '' ]; do
+  sleep 2
+done
+
+cd /home/pi/
+if [ ! -d './RH-Setup-main' ]; then
+  wget https://github.com/Aaronsss/RH-Setup/archive/refs/heads/main.zip
+  unzip ./main.zip
+  chmod 744 ./RH-Setup-main/rh-pi-setup.sh
+  chown pi -R ./RH-Setup-main/
+  chgrp pi -R ./RH-Setup-main/
+  mkdir /boot/RH/
+fi
+
+su pi -c '~/RH-Setup-main/rh-pi-setup.sh' >> /boot/RH/log.txt
+
+exit 0" >> /etc/rc.local
+sudo reboot
 ```
-The raspberry pi will then reboot and you will have to run the following command to complete manual installation once the pi is booted up again
-```
-~/RH-Setup-main/rh-pi-setup.sh
-```
+The raspberry pi will reboot 3 times to completed the RotorHazard installation.
+
 
 ### Updating the timer software
 
