@@ -17,4 +17,4 @@ fi
 su aaron -c '~/RH-Setup-main/rh-pi-setup.sh' >> /boot/RH/log.txt
 
 exit 0" >> /etc/rc.local
-shutdown -r +3
+shutdown -r +5
