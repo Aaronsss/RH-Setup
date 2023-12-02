@@ -33,9 +33,11 @@ cp $INSTAL_DIR/RotorHazard.old/src/server/database.db $INSTAL_DIR/RotorHazard/sr
 cp -R $INSTAL_DIR/RotorHazard.old/src/server/static/user/ $INSTAL_DIR/RotorHazard/src/server/static/user/
 
 #Update python requirements
+cd ~
+python -m venv .venv
+VIRTUAL_ENV_DISABLE_PROMPT=1
+source .venv/bin/activate
 cd $INSTAL_DIR/RotorHazard/src/server
-python -m venv venv
-source venv/bin/activate
 pip install -r requirements.txt
 #sudo pip install --upgrade --no-cache-dir -r $INSTAL_DIR/RotorHazard/src/server/requirements.txt
 
