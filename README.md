@@ -3,6 +3,7 @@
 These scripts will setup your raspberry pi for the latest stable release of RotorHazard by adding a few files to your SD card and changing a few lines of code 
 
 ### How to install
+Please note the automated instal does not work corretly with Bookworm (version 12), you will either need to instal manually or use an older version of Raspberry pi OS Bullseye (version 11)
 1. Install Pi OS onto your SD card using raspberry pi imager (https://www.raspberrypi.com/software/)
 2. Paste the RH folder from this repository into your SD card (note 2 drives will appear use the one you can see files in)
 3. Add the following command to firstrun.sh on the line above 'rm -f /boot/firstrun.sh':
